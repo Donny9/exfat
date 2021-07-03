@@ -23,12 +23,19 @@
 ---
 task:
   matrix:
-    - name: debian
+    - name: debian (libfuse2)
       container:
         image: gcc:8-buster
       install_script: |
         apt-get update
         apt-get install -y libfuse-dev
+
+    - name: debian (libfuse3)
+      container:
+        image: gcc:8-buster
+      install_script: |
+        apt-get update
+        apt-get install -y libfuse3-dev
 
     - name: macos
       macos_instance:
